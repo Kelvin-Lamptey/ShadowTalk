@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}ShadowTalk - Anonymous Chat Platform{% endblock %}
+
+{% block content %}
+<div class="landing-page">
+    <!-- Hero Section -->
+    <section class="hero text-center py-5">
+        <h1 class="display-4 mb-4">Welcome to ShadowTalk</h1>
+        <p class="lead mb-5">Connect anonymously with students across Ghana's universities</p>
+        <div class="cta-buttons">
+            <a href="{% url 'register' %}" class="btn btn-primary btn-lg me-3">Get Started</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg">Login</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Why Choose ShadowTalk?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <i class="bi bi-shield-check display-4 mb-3"></i>
+                        <h3>100% Anonymous</h3>
+                        <p>Chat freely without revealing your identity. Your privacy is our top priority.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <i class="bi bi-search display-4 mb-3"></i>
+                        <h3>Smart Matching</h3>
+                        <p>Find people based on university, interests, or let fate decide with random matching.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <i class="bi bi-cash display-4 mb-3"></i>
+                        <h3>Completely Free</h3>
+                        <p>No hidden charges or premium features. All features are free for everyone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">How It Works</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="step text-center">
+                        <div class="step-number">1</div>
+                        <h4>Sign Up</h4>
+                        <p>Create your account with basic details</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="step text-center">
+                        <div class="step-number">2</div>
+                        <h4>Set Preferences</h4>
+                        <p>Choose your matching preferences</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="step text-center">
+                        <div class="step-number">3</div>
+                        <h4>Find Matches</h4>
+                        <p>Connect with other students</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="step text-center">
+                        <div class="step-number">4</div>
+                        <h4>Start Chatting</h4>
+                        <p>Engage in anonymous conversations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features List Section -->
+    <section class="features-list py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Everything You Need</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Anonymous Messaging</li>
+                        <li><i class="bi bi-check-circle-fill"></i> University-based Matching</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Gender Filter Options</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Random Chat Feature</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Name Search</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Privacy Controls</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Block Unwanted Users</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Report System</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta bg-primary text-white text-center py-5">
+        <div class="container">
+            <h2 class="mb-4">Ready to Start Chatting?</h2>
+            <p class="lead mb-4">Join thousands of students already connecting on ShadowTalk</p>
+            <a href="{% url 'register' %}" class="btn btn-light btn-lg">Create Your Account</a>
+        </div>
+    </section>
+</div>
+{% endblock %} 
