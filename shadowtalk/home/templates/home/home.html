@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Search Bar -->
+    <div class="row mb-4">
+        <div class="col-md-8 mx-auto">
+            <form method="GET" class="d-flex">
+                <input type="text" name="search" class="form-control" placeholder="Search users...">
+                <button type="submit" class="btn btn-primary ms-2">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Recent Chats -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Recent Chats</h5>
+                </div>
+                <div class="list-group list-group-flush">
+                    {% for chat in recent_chats %}
+                        <a href="{% url 'chat' chat.id %}" class="list-group-item list-group-item-action">
+                            {% for participant in chat.participants.all %}
+                                {% if participant != request.user %}
+                                    {{ participant.username }}
+                                {% endif %}
+                            {% endfor %}
+                        </a>
+                    {% empty %}
+                        <div class="list-group-item">No recent chats</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Search Options -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Find People</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <a href="{% url 'matchmaker' %}" class="btn btn-outline-primary w-100">
+                                Matchmaker
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="{% url 'random_users' %}" class="btn btn-outline-success w-100">
+                                Random Users
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="{% url 'nearby_users' %}" class="btn btn-outline-info w-100">
+                                Nearby Users
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="{% url 'same_school' %}" class="btn btn-outline-warning w-100">
+                                Same School
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Results -->
+            {% if search_results %}
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Search Results</h5>
+                </div>
+                <div class="list-group list-group-flush">
+                    {% for user in search_results %}
+                        <a href="{% url 'user_profile' user.username %}" class="list-group-item list-group-item-action">
+                            {{ user.username }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %} 

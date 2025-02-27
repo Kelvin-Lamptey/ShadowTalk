@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Profile, University
+from .models import UserProfile, University
 
 class UserRegistrationForm(UserCreationForm):
     username = forms.CharField(
@@ -9,7 +9,7 @@ class UserRegistrationForm(UserCreationForm):
         widget=forms.TextInput(attrs={'placeholder': 'Enter your preferred username'})
     )
     email = forms.EmailField()
-    gender = forms.ChoiceField(choices=Profile.GENDER_CHOICES, required=False)
+    gender = forms.ChoiceField(choices=UserProfile.GENDER_CHOICES, required=False)
     school = forms.ModelChoiceField(
         queryset=University.objects.all(),
         widget=forms.Select(attrs={'class': 'select2'}),
@@ -62,7 +62,7 @@ class ProfileUpdateForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Profile
+        model = UserProfile
         fields = ['bio', 'birth_date', 'gender', 'school']
         widgets = {
             'bio': forms.Textarea(attrs={'rows': 4}),

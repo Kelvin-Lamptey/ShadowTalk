@@ -38,6 +38,7 @@ pip-selfcheck.json
 pyvenv.cfg
 venv/
 .venv
+
 # IDE
 .idea/
 .vscode/
